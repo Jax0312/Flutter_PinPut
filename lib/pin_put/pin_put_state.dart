@@ -65,7 +65,7 @@ class PinPutState extends State<PinPut>
 
   @override
   void dispose() {
-    if (widget.controller == null) _controller!.dispose();
+    //if (widget.controller == null) _controller!.dispose();
     if (widget.focusNode == null) _focusNode!.dispose();
 
     _cursorAnimationController?.dispose();
