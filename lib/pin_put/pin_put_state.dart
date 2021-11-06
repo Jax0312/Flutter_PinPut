@@ -21,11 +21,7 @@ class PinPutState extends State<PinPut>
   @override
   void initState() {
     _controller = widget.controller ?? TextEditingController();
-    if (!widget.useNativeKeyboard) {
-      _focusNode = AlwaysDisabledFocusNode();
-    } else {
-      _focusNode = widget.focusNode ?? FocusNode();
-    }
+    _focusNode = widget.focusNode ?? FocusNode();
     _textControllerValue = ValueNotifier<String>(_controller!.value.text);
     _controller?.addListener(_textChangeListener);
     _focusNode?.addListener(() {
@@ -52,7 +48,6 @@ class PinPutState extends State<PinPut>
 
   void _textChangeListener() {
     final pin = _controller!.value.text;
-    widget.onChanged?.call(pin);
     if (pin != _textControllerValue!.value) {
       try {
         _textControllerValue!.value = pin;
@@ -121,8 +116,10 @@ class PinPutState extends State<PinPut>
       enabled: widget.enabled,
       enableSuggestions: false,
       autofocus: widget.autofocus,
+      readOnly: !widget.useNativeKeyboard,
       obscureText: widget.obscureText != null,
       autocorrect: false,
+      autofillHints: widget.autofillHints,
       keyboardAppearance: widget.keyboardAppearance,
       keyboardType: widget.keyboardType,
       textCapitalization: widget.textCapitalization,
@@ -224,10 +221,12 @@ class PinPutState extends State<PinPut>
 
   BoxDecoration? _fieldDecoration(int index) {
     if (!widget.enabled) return widget.disabledDecoration;
-    if (index < selectedIndex && _focusNode!.hasFocus) {
+    if (index < selectedIndex &&
+        (_focusNode!.hasFocus || !widget.useNativeKeyboard)) {
       return widget.submittedFieldDecoration;
     }
-    if (index == selectedIndex && _focusNode!.hasFocus) {
+    if (index == selectedIndex &&
+        (_focusNode!.hasFocus || !widget.useNativeKeyboard)) {
       return widget.selectedFieldDecoration;
     }
     return widget.followingFieldDecoration;

@@ -1,22 +1,15 @@
-<div>
-  <h1 align="center" style="font-size: 70px;">PinPut</h1>
-  <p align="center" >
-    <a title="PRs are welcome">
-      <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
-    </a>
-  <div>
-  <p align="center">
-    <a title="Buy me a coffee" href="https://www.buymeacoffee.com/fman">
-      <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=bdlukaa&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00">
-    </a>
-  </p>
+<div align="center">
+  <h1 align="center" style="font-size: 70px;">Flutter PinPut From <a href="https://www.linkedin.com/in/thornike/" target="_blank">Tornike</a> </h1>
+  
+<a href="https://www.buymeacoffee.com/fman" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Thank me with a coffee&emoji=&slug=fman&button_colour=40DCA5&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00"></a>
+  
 </div>
 
 
 🔥🚀
 Flutter package to create Pin code input (OTP) text field with every pixel customization possibility 🎨 and beautiful animations, Supports custom numpad.
 
-## Breaking changes in version 0.2.0+ changed widget building logic so now it supports:
+## Supported:
 -    Backspace on keyboard
 -    Every pixel customization
 -    Nice animations
